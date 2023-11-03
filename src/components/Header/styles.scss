@@ -1,0 +1,24 @@
+.headerLogo {
+  min-height: 80px;
+  display: flex;
+  align-items: center;
+  img {
+    aspect-ratio: 36/7;
+    object-fit: contain;
+    width: 290px;
+  }
+}
+
+.nav {
+  background-color: var(--primary);
+  display: flex;
+  align-items: center;
+  nav {
+    display: inline-flex;
+    min-height: 80px;
+    align-items: center;
+    color: #fff;
+    border-bottom: 4px solid #fff;
+    padding-top: 4px;
+  }
+}

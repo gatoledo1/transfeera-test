@@ -1,0 +1,22 @@
+.title {
+  font-size: 2rem;
+  color: #444444;
+  margin: 3rem 0;
+}
+
+.field-groups {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.container-btns {
+  margin-top: 5rem;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  gap: 8px;
+
+  @media (min-width: 400px) {
+    flex-direction: row;
+  }
+}
