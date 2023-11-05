@@ -2,18 +2,21 @@ import { isCPF, isEmail, notNull } from '../../utils/validators';
 
 export const data = [
   {
-    label: "Qual seu nome completo",
+    name: "name",
+    label: "Qual o nome completo ou razão social do favorecido?",
     type: "text",
     size: "1/2",
   },
   {
-    label: "Qual o CPF ou CNPJ",
+    name: "tax_id",
+    label: "Qual o CPF ou CNPJ?",
     type: "text",
     size: "1/3",
     validation: isCPF,
   },
   {
-    label: "Qual o seu e-mail",
+    name: "email",
+    label: "Qual o e-mail para envio do comprovante",
     type: "text",
     size: "1/2",
     //validation: isEmail,
@@ -22,6 +25,7 @@ export const data = [
 
 export const pix = [
   {
+    name: "pix_key_type",
     label: "Tipo de chave",
     type: "select",
     size: "1/2",
@@ -30,12 +34,13 @@ export const pix = [
       { value: 'cpf', label: 'CPF' },
       { value: 'cnpj', label: 'CNPJ' },
       { value: 'email', label: 'E-mail' },
-      { value: 'phone', label: 'Celular' },
-      { value: 'random', label: 'Chave aleatória' },
+      { value: 'celular', label: 'Celular' },
+      { value: 'aleatoria', label: 'Chave aleatória' },
     ],
     //validation: notNull,
   },
   {
+    name: "pix_key",
     label: "Chave",
     type: "text",
     size: "1/2",

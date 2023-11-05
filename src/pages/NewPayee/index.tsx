@@ -5,8 +5,8 @@ import Form from '../../components/Form'
 const NewPayee = () => {
   return (
     <>
-      <Header />
-      <div className='container' style={{marginBlock: "2rem"}}>
+      <Header type={"payee"} />
+      <div className='container' style={{margin: "2rem auto", maxWidth: 960}}>
         <Form />
       </div>
     </>

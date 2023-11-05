@@ -15,7 +15,8 @@ const Field = (props: Fields) => {
   const { label, size, type, options, value, onChange, validation } = props
   const sizeMap = {
     "1/2": "large",
-    "1/3": "medium"
+    "1/3": "medium",
+    "2/3": "modal"
   }
 
   switch (type) {

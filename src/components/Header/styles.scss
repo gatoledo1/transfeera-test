@@ -22,3 +22,10 @@
     padding-top: 4px;
   }
 }
+
+.close-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  min-height: 80px;
+}

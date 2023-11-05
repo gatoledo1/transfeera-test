@@ -34,29 +34,43 @@ a {
 
 .primary-bg {
   background-color: var(--primary);
-  border: 1px solid var(--primary);
   color: #fff;
   &.inverted {
+    border: 1px solid var(--primary);
     background-color: inherit !important;
     color: var(--primary);
   }
 }
 .secondary-bg {
   background-color: var(--secondary);
-  border: 1px solid var(--secondary);
   color: #fff;
   &.inverted {
+    border: 1px solid var(--secondary);
     background-color: inherit !important;
     color: var(--secondary);
+  }
+  &.no-hover {
+    cursor: default;
+    &:hover {
+      background-color: var(--secondary);
+      color: #fff !important;
+    }
   }
 }
 .gray-bg {
   background-color: var(--text);
-  border: 1px solid var(--text);
   color: #fff;
   &.inverted {
+    border: 1px solid var(--text);
     background-color: inherit !important;
     color: var(--text);
+  }
+  &.no-hover {
+    cursor: default;
+    &:hover {
+      background-color: var(--text);
+      color: #fff !important;
+    }
   }
 }
 
@@ -71,6 +85,10 @@ a {
   }
 }
 
+.ant-table-thead >tr>th {
+  background-color: inherit !important;
+}
+
 .ant-input, .ant-input-search-button {
   border-color: #fff
 }
@@ -83,6 +101,17 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-none {
+  appearance: none;
+  background-color: inherit;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  color: inherit;
 }
 
 .container {
@@ -91,34 +120,20 @@ a {
   margin-left: auto;
   padding-right: 15px;
   padding-left: 15px;
-}
-
-@media (min-width: 576px) {
-  .container {
+  @media (min-width: 576px) {
     max-width: 540px;
   }
-}
-
-@media (min-width: 768px) {
-  .container {
+  
+  @media (min-width: 768px) {
     max-width: 720px;
   }
-}
-
-@media (min-width: 992px) {
-  .container {
+  
+  @media (min-width: 992px) {
     max-width: 960px;
   }
-}
-
-@media (min-width: 1200px) {
-  .container {
+  
+  @media (min-width: 1200px) {
     max-width: 1140px;
   }
 }
 
-@media (min-width: 1400px) {
-  .container {
-    max-width: 1300px;
-  }
-}

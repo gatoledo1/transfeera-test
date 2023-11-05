@@ -2,11 +2,15 @@
   font-size: 2rem;
   color: #444444;
   margin: 3rem 0;
+  .modal & {
+    margin: 1rem 0;
+  }
 }
 
 .field-groups {
   display: flex;
   flex-wrap: wrap;
+  gap: 0 3rem;
 }
 
 .container-btns {
@@ -16,7 +20,15 @@
   flex-direction: column;
   gap: 8px;
 
+  .modal & {
+    margin-top: 2rem;
+  }
+
   @media (min-width: 400px) {
     flex-direction: row;
+  }
+  & > .container-btns {
+    margin-top: 0;
+    gap: 1.5rem;
   }
 }

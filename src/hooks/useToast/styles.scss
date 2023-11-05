@@ -1,0 +1,66 @@
+.toast-container {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  align-items: center;
+  padding: 0.5rem;
+  border-radius: 8px;
+  max-width: 340px;
+  height: min-content;
+  top: 8rem;
+  right: 0.5rem;
+  bottom: 20px;
+  transition: right 0.6s cubic-bezier(0.83, 0, 0.17, 1);
+  z-index: 99;
+  
+  p {
+    color: #fff;
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+}
+
+.close svg {
+  color: #fff
+}
+
+.info {
+  background-color: var(--secondary);
+}
+
+.success {
+  background-color: var(--primary);
+}
+
+.danger {
+  background-color: #d46262;
+}
+
+.warning {
+  background-color: #ffb310;
+}
+
+.animated {
+  animation-duration: 0.6s;
+  animation-fill-mode: both;
+  -webkit-animation-duration: 0.6s;
+  -webkit-animation-fill-mode: both;
+}
+
+.fadeInLeft {
+  opacity: 0;
+  animation-name: fadeInLeft;
+  -webkit-animation-name: fadeInLeft;
+}
+
+@keyframes fadeInLeft {
+  from {
+    transform: translate3d(100px, 0, 0);
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}

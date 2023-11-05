@@ -7,10 +7,25 @@
   .inline-items {
     display: flex;
     justify-content: space-between;
-
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    @media (min-width: 768px) {
+      flex-direction: row;
+    }
   }
 }
 
 .table-container {
   margin-bottom: 3rem;
+}
+
+.btn-delete {
+  background-color: #f38790;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+.primary-icon svg {
+  color: var(--primary)
 }
