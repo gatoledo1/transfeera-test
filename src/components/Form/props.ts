@@ -1,4 +1,4 @@
-import { isCPF, isEmail, notNull } from '../../utils/validators';
+import { isCNPJ, isCPF, isEmail, notNull } from '../../utils/validators';
 
 export const data = [
   {
@@ -12,14 +12,13 @@ export const data = [
     label: "Qual o CPF ou CNPJ?",
     type: "text",
     size: "1/3",
-    validation: isCPF,
   },
   {
     name: "email",
     label: "Qual o e-mail para envio do comprovante",
     type: "text",
     size: "1/2",
-    //validation: isEmail,
+    validation: isEmail,
   },
 ];
 
@@ -37,7 +36,6 @@ export const pix = [
       { value: 'celular', label: 'Celular' },
       { value: 'aleatoria', label: 'Chave aleatória' },
     ],
-    //validation: notNull,
   },
   {
     name: "pix_key",

@@ -2,10 +2,9 @@ import React, { useState } from 'react'
 import { Button, Table } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
 import BankLogo from '../../components/Logotype';
-import { deleteReceivers } from '../../services/deleteReceivers';
-import { getReceivers } from '../../services/getReceivers';
 import { Payee } from '../../types/Payee';
 import useToast from '../../hooks/useToast';
+import { deletePayees } from '../../utils/deletePayees';
 
 interface TableData {
   receivers: Payee[],
@@ -70,14 +69,9 @@ const TableHome = ({receivers, setReceivers, showModal}: TableData) => {
 
   const deletePayee = async () => {
     if(selecteds.length > 0) {
-      try {
-        deleteReceivers(selecteds).then(async () => {
-          const repoData = await getReceivers();
-          setReceivers(repoData);
-        })
-      } catch(e) {
-        console.error("Erro ao tentar deletar: ", e)
-      }
+      const updateReceivers = await deletePayees(selecteds)
+      setReceivers(updateReceivers);
+      setSelecteds([])
     } else {
       show("warning", "Você não selecionou nenhum item!")
     }

@@ -2,16 +2,19 @@ import React, { useState } from "react";
 import Field from "./Fields";
 import { data, pix } from "./props";
 import "./styles.scss";
-import { postReceiver } from "../../services/postReceivers";
 import { useNavigate } from "react-router-dom";
 import { Payee } from "../../types/Payee";
-import { v4 as uuidv4 } from 'uuid';
-import moment from "moment-timezone";
+import { deletePayees } from "../../utils/deletePayees";
+import FooterBtns from "../FooterBtns";
+import { putPayee } from "../../utils/putPayee";
+import { postPayee } from "../../utils/postPayee";
+import useToast from "../../hooks/useToast";
 
 const Form = (props) => {
-  const [formData, setFormData] = useState(props ? props : {});
+  const { modal, modalState, ...rest } = props
+  const [formData, setFormData] = useState(rest ? rest : {});
   const navigate = useNavigate();
-  const currentDate = moment();
+  const { Toast, show } = useToast()
 
   const handleFieldChange = (fieldName: string, value: Payee) => {
     setFormData({ ...formData, [fieldName]: value });
@@ -19,67 +22,63 @@ const Form = (props) => {
 
   const handleSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault();
-    const newReceiver = {
-      id: uuidv4(),
-      ...formData,
-      branch: null,
-      account: null,
-      account_type: null,
-      bank_name: null,
-      bank_code: null,
-      status: "rascunho",
-      created_at: currentDate.format('YYYY-MM-DD HH:mm:ssZ').slice(0, -3),
-      updated_at: currentDate.format('YYYY-MM-DD HH:mm:ssZ').slice(0, -3),
+    if(modal) {
+      putPayee(formData)
+    } else {
+      if (
+        !formData.name ||
+        !formData.email ||
+        !formData.tax_id ||
+        !formData.pix_key ||
+        !formData.pix_key_type
+      ) {
+        show("danger", "Todos os campos devem estar preenchidos!")
+        return false;
+      } else {
+        postPayee(formData, navigate)
+      }
     }
-    postReceiver(newReceiver)
-      .then(() => {
-        setFormData({});
-        navigate("/")
-        //@ts-ignore
-        window.showToast = true;
-      })
-      .catch(() => {});
   };
 
+  const deletePayee = () => {
+    deletePayees(formData.id).then(() => window.location.reload())
+    return
+  }
+
   return (
-    <form className={props.modal && "modal"}>
-      <h1 className="title">Quais os dados do favorecido?</h1>
-      <div className="field-groups">
-        {data.map((field, index) => (
-          <Field
-            key={index}
-            {...field}
-            value={formData[field.name] || ""}
-            onChange={(value: any) => handleFieldChange(field.name, value)}
-          />
-        ))}
-      </div>
-      <h1 className="title">Qual a chave pix?</h1>
-      <div className="field-groups">
-        {pix.map((field, index) => (
-          <Field
-            key={index}
-            {...field}
-            value={formData[field.name] || ""}
-            onChange={(value: any) => handleFieldChange(field.name, value)}
-          />
-        ))}
-      </div>
+    <>
       {
-        !formData.modal && (
-          <div className="container-btns">
-            <button className="btn-default primary-bg inverted" onClick={() => navigate("/")}>
-              Cancelar
-            </button>
-            <div className="container-btns">
-              <button type="submit" className="btn-default secondary-bg" onClick={handleSubmit}>
-                Salvar
-              </button>
-            </div>
-          </div>
+        Toast && (
+          <Toast />
         )
       }
-    </form>
+      <form className={modal && "modal"}>
+        <h1 className="title">Quais os dados do favorecido?</h1>
+        <div className="field-groups">
+          {data.map((field, index) => (
+            <Field
+              key={index}
+              {...field}
+              value={formData[field.name] || ""}
+              onChange={(value: any) => handleFieldChange(field.name, value)}
+            />
+          ))}
+        </div>
+        <h1 className="title">Qual a chave pix?</h1>
+        <div className="field-groups">
+          {pix.map((field, index) => (
+            <Field
+              key={index}
+              {...field}
+              value={formData[field.name] || ""}
+              onChange={(value: any) => handleFieldChange(field.name, value)}
+            />
+          ))}
+        </div>
+        <FooterBtns modal={modal} deletePayee={deletePayee} goTo={navigate} handleSubmit={handleSubmit} />
+          
+      </form>
+    </>
   );
 };
 

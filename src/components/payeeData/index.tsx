@@ -2,9 +2,24 @@ import React, { useState } from 'react'
 import "./styles.scss";
 import { Payee } from '../../types/Payee';
 import Field from '../Form/Fields';
+import FooterBtns from '../FooterBtns';
+import { useNavigate } from 'react-router-dom';
+import { deletePayees } from '../../utils/deletePayees';
+import { putPayee } from '../../utils/putPayee';
 
 const UpdatePayee = (props: Payee) => {
-  const [email, setEmail] = useState("")
+  const [dataUpdateEmail, setDataUpdateEmail] = useState(undefined)
+  const navigate = useNavigate();
+
+  const deletePayee = () => {
+    deletePayees(props.id).then(() => window.location.reload())
+    return
+  }
+
+  const handleFieldChange = (value: Payee) => {
+    setDataUpdateEmail({ ...props, email: value });
+  };
+
   return (
     <>
       <div className='flex-container'>
@@ -37,10 +52,11 @@ const UpdatePayee = (props: Payee) => {
         <Field
           label={"E-mail do favorecido"} size='2/3' type='text'
           {...props}
-          value={props.email || ""}
-          onChange={(value: any) => setEmail(value)}
+          value={dataUpdateEmail?.email || props.email}
+          onChange={(value: any) => handleFieldChange(value)}
         />
       </div>
+      <FooterBtns modal={true} deletePayee={deletePayee} goTo={navigate} handleSubmit={() => putPayee(dataUpdateEmail)} />
     </>
   )
 }

@@ -7,11 +7,11 @@ export const Header = ({type}) => {
   const navigate = useNavigate();
   return (
     <>
-      <div className="headerLogo container">
+      <div className="headerLogo container container-fluid">
         <img src={logotype} alt="logotype" />
       </div>
       <div className="nav">
-        <div className="container">
+        <div className="container container-fluid">
           {
             !type ? (
               <nav>Seus favorecidos</nav>
