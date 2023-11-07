@@ -70,7 +70,7 @@ O Cypress abrirá uma interface de usuário.
 
 3. Clique nos testes que deseja executar.
 
-![Captura de tela de 2023-11-07 13-13-58](https://github.com/gatoledo1/transfeera-test/assets/19327889/614ce89f-200d-4540-96c3-96fee82aa67c)
+<img src="https://github.com/gatoledo1/transfeera-test/assets/19327889/614ce89f-200d-4540-96c3-96fee82aa67c" width="460" height="300"> 
 
 
 O Cypress executará os testes e mostrará os resultados na interface do usuário.
