@@ -7,8 +7,8 @@ Este repositório contém um aplicativo React criado com o `create-react-app`. A
 
 O objetivo é transformar esse design em um sistema funcional na web, integrando-o com a biblioteca [JSON Server](https://github.com/typicode/json-server) junto com o JSON fornecido, para simular um back-end para a aplicação. O sistema inclui funcionalidades de listagem com filtros, inclusão, edição e remoção de recebedores de pagamento.
 
-<img src="https://github.com/gatoledo1/transfeera-test/assets/19327889/2de0549f-fde0-402e-b2cb-fae8b6209aa8" width="460" height="284">
-<img src="https://github.com/gatoledo1/transfeera-test/assets/19327889/521924f1-f922-4b72-9856-cbdc58df5919" width="460" height="284"> 
+<img src="https://github.com/gatoledo1/transfeera-test/assets/19327889/2de0549f-fde0-402e-b2cb-fae8b6209aa8" width="390" height="240">
+<img src="https://github.com/gatoledo1/transfeera-test/assets/19327889/521924f1-f922-4b72-9856-cbdc58df5919" width="390" height="240"> 
 
 ## ✅ Pré-requisitos
 
