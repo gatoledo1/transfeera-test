@@ -4,13 +4,14 @@ import { Button } from 'antd'
 const FooterBtns = ({modal, deletePayee, goTo, handleSubmit}) => {
   return (
     <div className="container-btns">
-          <button className="btn-default primary-bg inverted" onClick={() => goTo("/")}>
+          <button data-cy="modal-btn-cancel" className="btn-default primary-bg inverted" onClick={() => goTo("/")}>
             Cancelar
           </button>
           <div className="container-btns">
             {
               modal && (
                 <Button
+                  data-cy="modal-btn-delete"
                   type="primary"
                   danger
                   onClick={deletePayee}
@@ -29,7 +30,7 @@ const FooterBtns = ({modal, deletePayee, goTo, handleSubmit}) => {
                 />
               )
             }
-            <button type="submit" className="btn-default secondary-bg" onClick={handleSubmit}>
+            <button data-cy="modal-btn-save" type="submit" className="btn-default secondary-bg" onClick={handleSubmit}>
               Salvar
             </button>
           </div>

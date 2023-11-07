@@ -83,7 +83,7 @@ const TableHome = ({receivers, setReceivers, showModal}: TableData) => {
       {
         Toast ? <Toast /> : null
       }
-      <button className='btn-default btn-delete' onClick={() => deletePayee()}>Excluir selecionados</button>
+      <button data-cy="delete-selections" className='btn-default btn-delete' onClick={() => deletePayee()}>Excluir selecionados</button>
       <Table
         rowSelection={{ ...rowSelection }}
         columns={columns}

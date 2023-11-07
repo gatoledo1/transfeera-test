@@ -7,12 +7,13 @@ interface Fields {
   type: string, 
   options?: Array<{value: string; label: string }>, 
   value: string, 
+  test?: string,
   onChange: (e: string) => void, 
   validation?: (personalNumber: string | number) => void;
 }
 
 const Field = (props: Fields) => {
-  const { label, size, type, options, value, onChange, validation } = props
+  const { label, size, type, options, value, test, onChange, validation } = props
   const sizeMap = {
     "1/2": "large",
     "1/3": "medium",
@@ -24,7 +25,7 @@ const Field = (props: Fields) => {
       return (
         <div className={`input-container ${sizeMap[size]}`}>
           <label>{label}</label>
-          <input type="text" value={value} onChange={(e) => onChange(e.target.value)} />
+          <input data-cy={test} type="text" value={value} onChange={(e) => onChange(e.target.value)} />
           {/* {validation && !validation(value) && <span className="error">Campo inválido</span>} */}
         </div>
       );
@@ -33,7 +34,7 @@ const Field = (props: Fields) => {
       return (
         <div className={`input-container ${sizeMap[size]}`}>
           <label>{label}</label>
-          <select value={value} onChange={(e) => onChange(e.target.value)}>
+          <select data-cy={test} value={value} onChange={(e) => onChange(e.target.value)}>
             {options.map((option: { value: string; label: string }, index: React.Key) => (
               <option key={index} value={option.value}>
                 {option.label}

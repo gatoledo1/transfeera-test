@@ -55,14 +55,16 @@ const Form = (props) => {
       <form className={modal && "modal"}>
         <h1 className="title">Quais os dados do favorecido?</h1>
         <div className="field-groups">
-          {data.map((field, index) => (
+          {data.map((field, index) => {
+            console.log(field.test)
+            return (
             <Field
               key={index}
               {...field}
               value={formData[field.name] || ""}
               onChange={(value: any) => handleFieldChange(field.name, value)}
             />
-          ))}
+          )})}
         </div>
         <h1 className="title">Qual a chave pix?</h1>
         <div className="field-groups">

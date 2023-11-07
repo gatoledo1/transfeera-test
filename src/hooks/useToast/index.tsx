@@ -18,7 +18,7 @@ const useToast = () => {
 
   const Toast = () => {
     return (
-      <div className={`toast-container animated ${theme} ${visible && "fadeInLeft"}`}>
+      <div data-cy="toast" className={`toast-container animated ${theme} ${visible && "fadeInLeft"}`}>
         <p>{content}</p>
         <button className='btn-none close' onClick={() => setVisible(false)}>
           <CloseOutlined />
