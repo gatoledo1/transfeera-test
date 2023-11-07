@@ -1,7 +1,21 @@
 
 # TESTE TRANSFEERA 🚀
 
-Este repositório contém um aplicativo React criado com o `create-react-app`. Abaixo estão instruções detalhadas sobre como configurar e executar o projeto.
+Este repositório contém uma aplicação React criada com `create-react-app`. 
+
+### ✨ Informações adicionais
+
+Bibliotecas utilizadas e recursos desenvolvidos:
+
+1. `react-router-dom` - Para trabalhar com rotas do SPA
+2. `axios` - Para trabalhar com requisições de dados
+3. `antd (Ant Design)` - Biblioteca para fornecer alguns componentes, como a tabela
+4. `sass` - Para estilizar
+5. `Custom Hooks` - Para disparar modal e toasts
+6. `Cypress` - Para testes E2E no front-end
+7. `Metadados` - Formulários construidos atrás de propriedades em metadados
+   
+
 
 [Figma](https://www.figma.com/proto/8zSuDeDe8yI9zxP2mVKZnp/Teste-%7C-Dev?page-id=0%3A1&node-id=0-86&viewport=560%2C387%2C0.21&scaling=min-zoom&starting-point-node-id=0%3A86&t=RoxfOIyyIU4G1Duv-1) 🎯
 
@@ -9,6 +23,11 @@ O objetivo é transformar esse design em um sistema funcional na web, integrando
 
 <img src="https://github.com/gatoledo1/transfeera-test/assets/19327889/2de0549f-fde0-402e-b2cb-fae8b6209aa8" width="390" height="240">
 <img src="https://github.com/gatoledo1/transfeera-test/assets/19327889/521924f1-f922-4b72-9856-cbdc58df5919" width="390" height="240"> 
+
+---
+
+Abaixo estão instruções detalhadas sobre como configurar e executar o projeto.
+
 
 ## ✅ Pré-requisitos
 
