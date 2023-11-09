@@ -10,7 +10,7 @@ export const useModal = () => {
   const [data, setData] = useState<Payee>(undefined)
 
   const internalComponent = {
-    validado: (<UpdatePayee {...data} />),
+    validado: (<UpdatePayee {...data} modalState={setVisible} modal={true} />),
     rascunho: (<Form {...data} modalState={setVisible} modal={true} />)
   }
 

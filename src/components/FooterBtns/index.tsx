@@ -4,7 +4,7 @@ import { Button } from 'antd'
 const FooterBtns = ({modal, deletePayee, goTo, handleSubmit}) => {
   return (
     <div className="container-btns">
-          <button data-cy="modal-btn-cancel" className="btn-default primary-bg inverted" onClick={() => goTo("/")}>
+          <button data-cy="modal-btn-cancel" className="btn-default primary-bg inverted" onClick={() => !modal ? goTo("/") : goTo(false)}>
             Cancelar
           </button>
           <div className="container-btns">
