@@ -56,7 +56,6 @@ const Form = (props) => {
         <h1 className="title">Quais os dados do favorecido?</h1>
         <div className="field-groups">
           {data.map((field, index) => {
-            console.log(field.test)
             return (
             <Field
               key={index}
@@ -77,7 +76,7 @@ const Form = (props) => {
             />
           ))}
         </div>
-        <FooterBtns modal={modal} deletePayee={deletePayee} goTo={navigate} handleSubmit={handleSubmit} />
+        <FooterBtns modal={modal} deletePayee={deletePayee} goTo={!modal ? navigate : modalState} handleSubmit={handleSubmit} />
           
       </form>
     </>
